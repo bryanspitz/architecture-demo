@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Architecture Demo</string>
+
+    <!-- Lists -->
+    <string name="lists">Lists</string>
+    <string name="list_item_count">%d items</string>
+    <string name="add_list">Add list</string>
+    <string name="delete_list_dialog_title">Delete list?</string>
+    <string name="delete_list_dialog_text">Are you sure you want to delete %1$s? It still has %2$d items in it.</string>
+
+    <!-- User -->
+    <string name="user">User</string>
+
+    <!-- General -->
+    <string name="delete">Delete</string>
+    <string name="cancel">Cancel</string>
+</resources>
