@@ -42,7 +42,7 @@ fun MainBottomNavigationPreview() {
 	var currentRoute by remember { mutableStateOf(AppScreen.LISTS.route) }
 	val onNavigate = remember { MutableSharedFlow<String>() }
 	
-	LaunchedEffect(null) {
+	LaunchedEffect(Unit) {
 		onNavigate.collectLatest { currentRoute = it }
 	}
 	

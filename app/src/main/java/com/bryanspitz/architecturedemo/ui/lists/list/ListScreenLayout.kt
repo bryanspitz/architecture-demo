@@ -73,11 +73,6 @@ fun ItemAddRow(
 ) {
 	var editText by remember { mutableStateOf("") }
 	val scope = rememberCoroutineScope()
-	val focusRequester = remember { FocusRequester() }
-	
-	LaunchedEffect(null) {
-		focusRequester.requestFocus()
-	}
 	
 	Surface {
 		BasicTextField(
@@ -97,7 +92,6 @@ fun ItemAddRow(
 			modifier = Modifier
 				.fillMaxWidth()
 				.padding(horizontal = 16.dp, vertical = 8.dp)
-				.focusRequester(focusRequester)
 		)
 	}
 }

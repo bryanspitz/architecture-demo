@@ -39,7 +39,7 @@ fun MainActivityScreen() {
 	val navController = rememberNavController()
 	val onNavigate = remember { MutableSharedFlow<String>() }
 	
-	LaunchedEffect(null) {
+	LaunchedEffect(Unit) {
 		launch { NavigationFeature(navController, onNavigate).start() }
 		awaitCancellation()
 	}

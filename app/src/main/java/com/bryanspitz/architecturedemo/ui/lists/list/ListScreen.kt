@@ -34,7 +34,7 @@ fun ListScreen(listId: Long) {
 	}
 	val list by component.list.collectAsState(TodoListWithItems(TodoList(0L, "", 0), emptyList()))
 	
-	LaunchedEffect(null) {
+	LaunchedEffect(Unit) {
 		component.features().launchAll()
 	}
 	

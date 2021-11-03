@@ -36,7 +36,7 @@ fun ListsScreen(
 	}
 	val lists by component.lists.collectAsState(initial = emptyList())
 	
-	LaunchedEffect(null) {
+	LaunchedEffect(Unit) {
 		component.features().launchAll()
 	}
 	
