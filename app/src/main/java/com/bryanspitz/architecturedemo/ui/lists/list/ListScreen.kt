@@ -10,6 +10,7 @@ import com.bryanspitz.architecturedemo.architecture.FeatureSet
 import com.bryanspitz.architecturedemo.architecture.FeatureSetProvider
 import com.bryanspitz.architecturedemo.architecture.ScreenScope
 import com.bryanspitz.architecturedemo.architecture.appDependency
+import com.bryanspitz.architecturedemo.model.TodoItem
 import com.bryanspitz.architecturedemo.model.TodoList
 import com.bryanspitz.architecturedemo.model.TodoListWithItems
 import com.bryanspitz.architecturedemo.repository.todo.ListRequest
@@ -39,7 +40,8 @@ fun ListScreen(listId: Long) {
 	
 	ListScreenLayout(
 		list = list,
-		onAdd = component.onAdd
+		onAdd = component.onAdd,
+		onItemClick = component.onClick
 	)
 }
 
@@ -61,11 +63,13 @@ interface ListComponent : FeatureSetProvider {
 	val list: Flow<TodoListWithItems>
 	
 	@get:Add val onAdd: MutableSharedFlow<String>
+	@get:Click val onClick: MutableSharedFlow<TodoItem>
 }
 
 @Module
 class ListModule {
 	@get:Provides @get:Add val onAdd = MutableSharedFlow<String>()
+	@get:Provides @get:Click val onClick = MutableSharedFlow<TodoItem>()
 	
 	@ScreenScope @Provides fun list(
 		@ListId listId: Long,
@@ -79,3 +83,4 @@ class ListModule {
 
 @Qualifier annotation class ListId
 @Qualifier annotation class Add
+@Qualifier annotation class Click
