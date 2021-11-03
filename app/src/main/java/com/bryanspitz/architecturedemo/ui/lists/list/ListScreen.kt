@@ -77,8 +77,9 @@ class ListModule {
 	) = listRequest.list(listId)
 	
 	@Provides fun features(
-		add: ListAddItemFeature
-	) = FeatureSet(add)
+		add: ListAddItemFeature,
+		click: ListClickItemFeature
+	) = FeatureSet(add, click)
 }
 
 @Qualifier annotation class ListId
